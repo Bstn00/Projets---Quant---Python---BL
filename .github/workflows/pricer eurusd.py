@@ -11,15 +11,15 @@ sigma = 0.15  # Volatilité annuelle
 # Nombre de simulations Monte Carlo
 n_simulations = 10000000
 
-# Taille nominale (nombre de contrats)
-nominal_size = 100000  # Par exemple, 100 000 EUR/USD par contrat
+# Taille nominale 
+nominal_size = 100000  
 
-# Générer des échantillons aléatoires pour le modèle de Black-Scholes-Merton
+# Générer des échantillons aléatoires pour le modèle de Black&Scholes
 np.random.seed(0)
 z = np.random.standard_normal(n_simulations)
 ST = S0 * np.exp((r - 0.5 * sigma**2) * T + sigma * np.sqrt(T) * z)
 
-# Calcul des payoffs de l'option (call option européenne)
+# Calcul des payoffs de l'option 
 payoffs = np.maximum(ST - K, 0)
 
 # Calcul du prix total de l'option en tenant compte du nominal
